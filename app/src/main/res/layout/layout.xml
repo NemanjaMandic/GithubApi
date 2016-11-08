@@ -12,9 +12,17 @@
         android:layout_height="wrap_content"
         style="@android:style/TextAppearance" />
 
+
     <TextView
         android:layout_marginTop="15dp"
         android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@android:style/TextAppearance" />
+
+    <TextView
+
+        android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@android:style/TextAppearance" />
@@ -36,5 +44,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@android:style/TextAppearance" />
+
+    <Button
+        android:id="@+id/ownedReposBtn"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:text="@string/repositories"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:onClick="loadOwnRepos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

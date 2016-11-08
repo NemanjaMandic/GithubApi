@@ -3,4 +3,5 @@
 
     <string name="username">Username: </string>
     <string name="login">Login: </string>
+    <string name="repositories">Repositories</string>
 </resources>
