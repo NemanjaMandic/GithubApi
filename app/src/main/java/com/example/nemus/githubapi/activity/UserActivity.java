@@ -1,10 +1,12 @@
-package com.example.nemus.githubapi;
+package com.example.nemus.githubapi.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.nemus.githubapi.R;
 
 public class UserActivity extends AppCompatActivity {
 

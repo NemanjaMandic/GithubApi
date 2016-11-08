@@ -1,4 +1,4 @@
-package com.example.nemus.githubapi;
+package com.example.nemus.githubapi.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.nemus.githubapi.R;
 
 public class LoginActivity extends AppCompatActivity {
 
