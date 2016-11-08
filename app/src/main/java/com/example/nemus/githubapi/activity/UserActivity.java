@@ -7,6 +7,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.nemus.githubapi.R;
+import com.example.nemus.githubapi.model.GithubUser;
+import com.example.nemus.githubapi.rest.APIClient;
+import com.example.nemus.githubapi.rest.GithubUserEndPoints;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class UserActivity extends AppCompatActivity {
 
@@ -35,7 +42,59 @@ public class UserActivity extends AppCompatActivity {
 
         extras = getIntent().getExtras();
         newString = extras.getString("STRING_I_NEED");
+        System.out.println(newString);
+
+        loadData();
     }
 
+    public void loadData(){
+        final GithubUserEndPoints apiService = APIClient.getClient().create(GithubUserEndPoints.class);
+
+        Call<GithubUser> call = apiService.getUser(newString);
+        call.enqueue(new Callback<GithubUser>() {
+            @Override
+            public void onResponse(Call<GithubUser> call, Response<GithubUser> response) {
+                
+            }
+
+            @Override
+            public void onFailure(Call<GithubUser> call, Throwable t) {
+
+            }
+        });
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

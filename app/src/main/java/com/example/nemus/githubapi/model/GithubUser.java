@@ -1,15 +1,28 @@
 package com.example.nemus.githubapi.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by nemus on 11/8/2016.
  */
 public class GithubUser {
 
+    @SerializedName("login")
     private String login;
+
+    @SerializedName("name")
     private String name;
+
+    @SerializedName("followers")
     private String followers;
+
+    @SerializedName("following")
     private String following;
+
+    @SerializedName("avatar_url")
     private String avatar;
+
+    @SerializedName("email")
     private String email;
 
 
