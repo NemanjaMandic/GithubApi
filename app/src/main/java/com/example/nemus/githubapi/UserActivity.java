@@ -15,7 +15,8 @@ public class UserActivity extends AppCompatActivity {
     TextView login;
     TextView email;
     Button ownedrepos;
-
+    Bundle extras;
+    String newString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,9 @@ public class UserActivity extends AppCompatActivity {
         login = (TextView) findViewById(R.id.login);
         email = (TextView) findViewById(R.id.email);
         ownedrepos = (Button) findViewById(R.id.ownedReposBtn);
+
+        extras = getIntent().getExtras();
+        newString = extras.getString("STRING_I_NEED");
     }
 
 
