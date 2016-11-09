@@ -1,5 +1,6 @@
 package com.example.nemus.githubapi.activity;
 
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -10,6 +11,9 @@ import com.example.nemus.githubapi.R;
 import com.example.nemus.githubapi.model.GithubUser;
 import com.example.nemus.githubapi.rest.APIClient;
 import com.example.nemus.githubapi.rest.GithubUserEndPoints;
+import com.example.nemus.githubapi.rest.ImageDownloader;
+
+import java.util.concurrent.ExecutionException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,6 +30,8 @@ public class UserActivity extends AppCompatActivity {
     Button ownedrepos;
     Bundle extras;
     String newString;
+
+    Bitmap myImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +60,36 @@ public class UserActivity extends AppCompatActivity {
         call.enqueue(new Callback<GithubUser>() {
             @Override
             public void onResponse(Call<GithubUser> call, Response<GithubUser> response) {
-                
+
+                if(response.body().getName() == null){
+                    userNameTV.setText("No username provided");
+                }else{
+                    userNameTV.setText("Username: " + response.body().getName());
+                }
+
+                followersTV.setText("Followers: " + response.body().getFollowers());
+                followingTV.setText("Following: " + response.body().getFollowing());
+                login.setText("LogIn: " + response.body().getLogin());
+
+                if(response.body().getEmail() == null){
+                    email.setText("Email not provided");
+                }else{
+                    email.setText("Email: " + response.body().getEmail());
+                }
+
+                ImageDownloader task = new ImageDownloader();
+
+                try{
+                    myImage = task.execute(response.body().getAvatar()).get();
+                }catch(ExecutionException e){
+                    e.printStackTrace();
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }
+                avatarImg.setImageBitmap(myImage);
+                avatarImg.getLayoutParams().height=220;
+                avatarImg.getLayoutParams().width=220;
+
             }
 
             @Override
