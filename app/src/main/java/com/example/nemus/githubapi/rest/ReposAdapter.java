@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.nemus.githubapi.R;
 import com.example.nemus.githubapi.model.GithubRepo;
 
 import java.util.List;
