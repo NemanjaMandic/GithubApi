@@ -91,7 +91,7 @@ public class UserActivity extends AppCompatActivity {
                 avatarImg.getLayoutParams().width=220;
 
             }
-
+ ;;;;
             @Override
             public void onFailure(Call<GithubUser> call, Throwable t) {
 
